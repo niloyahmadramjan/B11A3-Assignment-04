@@ -23,7 +23,6 @@ function validContact(contact) {
     return false;
   }
 }
-
 /*Problem 03*/
 function willSuccess(marks) {
   if (!Array.isArray(marks)) {
@@ -39,4 +38,39 @@ function willSuccess(marks) {
     }
   }
   return upto50.length > downto50.length;
+}
+/*Problem 04*/
+function validProposal(person1, person2) {
+  if (
+    typeof person1 !== "object" ||
+    typeof person2 !== "object" ||
+    Array.isArray(person1) ||
+    Array.isArray(person2) ||
+    person1 === null ||
+    person2 === null
+  ) {
+    return "Invalid";
+  }
+  let ageDif = Math.abs(person1.age - person2.age);
+  if (ageDif <= 7 && person1.gender !== person2.gender) {
+    return true;
+  } else {
+    return false;
+  }
+}
+/*Problem 05 */
+function calculateSleepTime(times) {
+  let totalSeconds = 0;
+  for (let time of times) {
+    if (typeof time !== "number") {
+      return "Invalid";
+    } else {
+      totalSeconds = totalSeconds + time;
+    }
+  }
+  let hour = Math.floor(totalSeconds / 3600);
+  let minute = Math.floor((totalSeconds % 3600) / 60);
+  let seconds = totalSeconds % 60;
+  let totolSleepTime = { hour: hour, minute: minute, seconds: seconds };
+  return totolSleepTime;
 }
