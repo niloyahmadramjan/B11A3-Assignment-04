@@ -64,13 +64,12 @@ function calculateSleepTime(times) {
   for (let time of times) {
     if (typeof time !== "number") {
       return "Invalid";
-    } else {
-      totalSeconds = totalSeconds + time;
     }
+    totalSeconds += time;
   }
   let hour = Math.floor(totalSeconds / 3600);
   let minute = Math.floor((totalSeconds % 3600) / 60);
-  let seconds = totalSeconds % 60;
-  let totolSleepTime = { hour: hour, minute: minute, seconds: seconds };
-  return totolSleepTime;
+  let second = totalSeconds % 60;
+  let totalSleepTime = { hour: hour, minute: minute, second: second };
+  return totalSleepTime;
 }
